@@ -20,7 +20,7 @@ One way to remedy this is to resample the input dataset to a higher resolution (
 
 |<small>*For example, resampling by a scale factor of 10 would allow 5 unique data values to be used in zonal statistics, with their frequency being determined by the area of overlap with the polygon (i.e., spatial weighting). The resampled values are populated using the nearest neighbor method, which is both computationally inexpensive and conservative because it does not interpolate any new values:*</small> |
 |:--:|
-|![Alt text](image-3.png)|
+|![Alt text](img/image-3.png)|
 
 ### Purpose
 
@@ -43,7 +43,7 @@ Empty `xarray` datasets were created at 1km, 2km, 4km, and 10km resolutions. The
 
 |<small>*Visual representation of our dataset of HUC-10 & HUC-12 polygons with simulated gridded data at 4 resolutions:*</small> |
 |:--:|
-|![Alt text](image-4.png)|
+|![Alt text](img/image-4.png)|
 
 ### The experiment
 
@@ -55,15 +55,15 @@ For each observation, we recorded the polygon area, grid cell area, and optimal 
 
 |<small>*Example of an individual observation, where the optimal scale factor for each combination was determined by visual inspection of the plots. Here, the optimal scale factors would be 1 (1km grid), 1 (2km grid), 4 (4km grid), and 8 (10km grid):*</small>|
 |:--:|
-|![Alt text](image-9.png)|
+|![Alt text](img/image-9.png)|
 
 
 |<small>*Plotting the whole dataset together, we can see that the zonal means become most sensitive to scale factor when resolutions are coarse relative to polygon size:*</small>|
 |:--:|
-|![Alt text](image-5.png)|
-|![Alt text](image-6.png)|
-|![Alt text](image-7.png)|
-|![Alt text](image-8.png)|
+|![Alt text](img/image-5.png)|
+|![Alt text](img/image-6.png)|
+|![Alt text](img/image-7.png)|
+|![Alt text](img/image-8.png)|
 
 
 ### Results
@@ -71,19 +71,19 @@ For each observation, we recorded the polygon area, grid cell area, and optimal 
  The polygon area and grid cell area were computed to a simple ratio, and a polylogarithmic function was fit to the dataset relating the ratio to the optimal scale factor. 
 
 
-![Alt text](image-10.png)
+![Alt text](img/image-10.png)
 
  This would be the line of best fit if we really needed the *optimal* scale factor, but in our case we are really seeking the maxmimum scale factor. Since there is no large computational cost to using a higher scale factor than necessary, and the zonal mean will not be largely affected, what we really want to do is capture as many observations as possible *under* this line. That way, we are sure that we are resampling to a fine enough resolution.
 
  To accomplish this, we use a hyperbolic function to create a line that includes the vast majority of the data points:
 
-![Alt text](image-12.png)
+![Alt text](img/image-12.png)
 
  Hyperbolic functions can have horizontal asymptotes, and in this case we use 1 (scale factor of 1 = original resolution) so as the polygon area increases relative to grid size, we tend towards keeping the original resolution. As the polygon area decreases relative to grid size, we increase the scale factor to a maximum of about 15. 
 
  Looking at compute times for the resampling operation, we see the longest times for the fine resolution (1km) dataset since there are more values to compute. However, our function as defined shows that we would rarely run into a case where we are going to resample a 1km resolution dataset. These look like very reasonable compute times (<6ms) for all other cases in the experiment.
 
-![Alt text](image-15.png)
+![Alt text](img/image-15.png)
 
 
 ### Conclusion
