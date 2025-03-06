@@ -72,7 +72,7 @@ For each observation, we recorded the polygon area, grid cell area, and optimal 
 
 ![Alt text](img/image-10.png)
 
- This would be the line of best fit if we really needed the *optimal* scale factor, but in our case we are really seeking the maximum scale factor. Since there is no large computational cost to using a higher scale factor than necessary, and the zonal mean will not be largely affected, what we really want to do is capture as many observations as possible *under* this line. That way, we are sure that we are resampling to a fine enough resolution.
+ This would be the line of best fit if we really needed the *optimal* scale factor, but in our case we are really seeking the *maximum* scale factor. Since there is no large computational cost to using a higher scale factor than necessary, and the zonal mean will not be largely affected, what we really want to do is capture as many observations as possible *under* this line. That way, we are sure that we are resampling to a fine enough resolution.
 
  To accomplish this, we use a hyperbolic function to create a line that includes the vast majority of the data points:
 
