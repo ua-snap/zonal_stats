@@ -7,8 +7,7 @@ Zonal statistics is the summarization of raster data cells that intersect a vect
 - the `all_touched` method selects all grid cells that touch the polygon boundary
 - the `centroid` method selects only the grid cells that have their centroid contained by the polygon boundary
 
-SNAP has chosen to use the `centroid` method, as it is more conservative; the `all_touched` method tends to grab too much data from outside of the polygon boundary. However, problems arise when the polygon is small relative to the grid cells of the raster dataset - much of the polygon area can be unaccounted for if the pixel centroids do not fall within the polygon, and sometimes no  pixel centroids fall within the polygon and the result is null, even though dataset values exist.
-  
+SNAP has chosen to use the `centroid` method, as it is more conservative; the `all_touched` method tends to grab too much data from outside of the polygon boundary. However, problems arise when the polygon is small relative to the grid cells of the raster dataset - much of the polygon area can be unaccounted for if the pixel centroids do not fall within the polygon. And sometimes no pixel centroids fall within the polygon and the result is null, even though dataset values exist under the polygon shape.
   
   
 | <small>*For example, overlaying this HUC-12 polygon on a 10km resolution dataset shows that only one pixel centroid falls within the polygon, so only one data value would be used to compute zonal statistics:*</small> |
