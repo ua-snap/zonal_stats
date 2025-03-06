@@ -23,7 +23,7 @@ One way to remedy this is to resample the input dataset to a higher resolution (
 
 ### Purpose
 
->This document describes an experiment designed to find a relationship between polygon area and grid cell area, in order to develop a defensible resampling method for zonal statistics. 
+>This document describes an experiment designed to find a relationship between polygon area, grid cell area, and the scale factor (i.e., resampling rate) in order to develop a widely applicable and defensible resampling method for zonal statistics. 
 
 **Why not just pick one resampling value and apply it across all zonal statistics operations?** Our heterogenous collection of polygons and datasets makes a "one size fits all" solution to resampled zonal statistics unworkable: we have too much variation to find an effective value to apply universally. 
 
