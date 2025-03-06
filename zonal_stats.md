@@ -13,7 +13,7 @@ SNAP has chosen to use the `centroid` method, as it is more conservative; the `a
   
 | <small>*For example, overlaying this HUC-12 polygon on a 10km resolution dataset shows that only one pixel centroid falls within the polygon, so only one data value would be used to compute zonal statistics:*</small> |
 |:--:| 
-|![Alt text](image-2.png)|
+|![Alt text](img/image-2.png)|
 
 One way to remedy this is to resample the input dataset to a higher resolution (i.e., a smaller grid cell size) in order to capture more data falling within the polygon boundary. At a high enough resolution, this method also has the effect of implementing a spatially weighted average where  pixels are effectively "split" by the polygon boundary. 
 
