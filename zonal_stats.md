@@ -34,7 +34,7 @@ One way to remedy this is to resample the input dataset to a higher resolution (
 >**$f$(polygon area,  dataset grid cell area) = scale factor**
 
 
-### Experimental Dataset
+## Phase 1 Experimental Dataset
 
 One HUC-8 polygon was chosen to be the spatial domain of the experiment, and all HUC-10 and HUC-12 level polygons within this HUC-8's bounding box were fetched to make up our set of polygons. 
 
@@ -72,7 +72,7 @@ For each observation, we recorded the polygon area, grid cell area, and optimal 
 
 ![Alt text](img/image-10.png)
 
- This would be the line of best fit if we really needed the *optimal* scale factor, but in our case we are really seeking the *maximum* scale factor. Since there is no large computational cost to using a higher scale factor than necessary, and the zonal mean will not be largely affected, what we really want to do is capture as many observations as possible *under* this line. That way, we are sure that we are resampling to a fine enough resolution.
+ This would be the line of best fit if we really needed the *optimal* scale factor, but in our case we are really seeking the *maximum* scale factor. We want to capture as many observations as possible *under* this line. That way, we are sure that we are resampling to a fine enough resolution in all cases.
 
  To accomplish this, we use a hyperbolic function to create a line that includes the vast majority of the data points:
 
@@ -93,4 +93,8 @@ By using the hyperbolic function below, we can determine an appropriate scale fa
 
 Scale factors will end up being between 1 and 15, and should probably be rounded up before use in interpolation. 
 
-For a dataset with bounding box the size of a HUC-8, interpolation using the nearest neighbor method should not be computationally expensive, even if we are "oversampling" beyond what is necessary. It's important to note that only subsets of the coverage (data fetched using a bounding box) will be interpolated - not the entire dataset! - but performance may decrease if we request zonal stats for very large polygon + fine resolution dataset combination. More testing will be needed to see if this resampling methodology breaks down under those extreme cases.
+For a dataset with bounding box the size of a HUC-8, interpolation using the nearest neighbor method should not be computationally expensive, even if our function leads to "oversampling" beyond what is necessary. It's important to note that only subsets of the coverage (data fetched using a bounding box) will be interpolated - not the entire dataset! - but performance may decrease if we request zonal stats for very large polygon + fine resolution dataset combination. More testing will be needed to see if this resampling methodology breaks down under those extreme cases.
+
+## Phase 2 Experimental Dataset
+
+TBD
