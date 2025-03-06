@@ -39,7 +39,7 @@ One way to remedy this is to resample the input dataset to a higher resolution (
 
 One HUC-8 polygon was chosen to be the spatial domain of the experiment, and all HUC-10 and HUC-12 level polygons within this HUC-8's bounding box were fetched to make up our set of polygons. 
 
-Empty `xarray` datasets were created at 1km, 2km, 4km, and 10km resolutions. The datasets were populated using random numbers from 0 to 1 in a normal distribution, with 25% of those values being multiplied by 10 to create "anomolies" in the dataset. (This helps to simulate real data, and guards against the fact that zonal means will always tend towards 0.5 in a random dataset like this.)
+Empty `xarray` datasets were created at 1km, 2km, 4km, and 10km resolutions. The datasets were populated using random numbers from 0 to 1 in a normal distribution, with 25% of those values being multiplied by 10 to create "anomolies" in the dataset. (This helps to simulate real data, and guards against the fact that zonal means will always tend towards 0.5 in a random dataset without anomolies.)
 
 |<small>*Visual representation of our dataset of HUC-10 & HUC-12 polygons with simulated gridded data at 4 resolutions:*</small> |
 |:--:|
