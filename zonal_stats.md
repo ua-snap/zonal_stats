@@ -48,7 +48,7 @@ Empty `xarray` datasets were created at 1km, 2km, 4km, and 10km resolutions. The
 
 For each individual polygon + dataset combination, we resampled the dataset at each scale factor from 1 (original resolution) to 12 (high resolution) and computed a zonal mean for the polygon. 
 
-We then plotted the values for 40 randomly chosen individual polygon + dataset combinations to visually determine the scale factor at which the mean seemed to "flatline", which would indicate the optimal scale factor for resampling. (In other words, this is the scale factor where any further increase in scale factor would not alter the result.)
+We then plotted the values for 40 randomly chosen individual polygon + dataset combinations to visually determine the scale factor at which the mean seemed to "flatline", which would indicate the optimal scale factor for resampling. (In other words, this is the scale factor where any further increase in scale factor would not meaningfully alter the result.)
 
 For each observation, we recorded the polygon area, grid cell area, and optimal scale factor in a table for analysis.
 
