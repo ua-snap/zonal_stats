@@ -118,6 +118,6 @@ Zonal statistics were computed at the original resolution and also at the scale 
 
 ### Results
 
-Using this method, we were able to increase the number of polygons with zonal stats from 236 to 353 (i.e., all polygons now have zonal stats). For the 236 polygons for which we can compare means at original resolution with the means computed at our scale factor, we see the percent difference ranges from -45% to 880%. This shows that our method is having a significant affect on some zonal stats values.
+Using this method, we were able to increase the number of polygons with zonal stats from 236 to 353 (i.e., all polygons now have zonal stats). For the 236 polygons for which we can compare means at original resolution with the means computed at our scale factor, we see the percent difference ranges from -100% to +335%. This shows that our method is having a significant affect on some zonal stats values.
 
 ![Alt text](img/image.png)
