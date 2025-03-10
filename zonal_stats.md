@@ -97,4 +97,27 @@ For a dataset with bounding box the size of a HUC-8, interpolation using the nea
 
 ## Phase 2 Experimental Dataset
 
-TBD
+To test with real data, rasters from the following datasets were used instead of randomly generated data:
+
+>Historical Monthly and Derived Precipitation Products - 771m CRU TS
+>https://catalog.snap.uaf.edu/geonetwork/srv/eng/catalog.search#/metadata/badab6be-5a29-4fae-b9de-5eff6f48702e
+> 
+>Historical Monthly Precipitation - 1 km CRU TS
+>https://catalog.snap.uaf.edu/geonetwork/srv/eng/catalog.search#/metadata/249d3c55-06b0-4c54-86c2-0281c2e15c8c
+> 
+>Projected Monthly and Derived Precipitation Products - 2km CMIP5/AR5
+>https://catalog.snap.uaf.edu/geonetwork/srv/eng/catalog.search#/metadata/f44595c8-5384-4c02-9ab4-f7a9c43e92eb
+> 
+>Historical and projected climate indicators for Alaska at 12km
+>https://catalog.snap.uaf.edu/geonetwork/srv/eng/catalog.search#/metadata/1c1de476-cc9d-4c7b-b8ab-25e8f68a317e
+> 
+>Historical and Projected Dynamically Downscaled Climate Data for the State of Alaska and surrounding regions at 20km spatial resolution and hourly temporal resolution (v1.1, August 2023)
+>https://catalog.snap.uaf.edu/geonetwork/srv/eng/catalog.search#/metadata/7825535c-edff-4a82-89f3-9183e6cb2b42
+
+Zonal statistics were computed at the original resolution and also at the scale factor specified by the hyperbolic function defined above. The means were standardized using min-max normalization, so that we could compare differences.
+
+### Results
+
+Using this method, we were able to increase the number of polygons with zonal stats from 236 to 353 (i.e., all polygons now have zonal stats). For the 236 polygons for which we can compare means at original resolution with the means computed at our scale factor, we see the percent difference ranges from -45% to 880%. This shows that our method is having a significant affect on some zonal stats values.
+
+![Alt text](img/image.png)

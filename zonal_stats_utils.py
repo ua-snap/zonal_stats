@@ -202,7 +202,9 @@ def rasterize_polygon(ds, x_dim, y_dim, poly_gdf):
             ds[y_dim].values.shape[0],
             ds[x_dim].values.shape[0],
         ),  # must be YX order for numpy array!
-        transform=ds.rio.transform(),
+        transform=ds.rio.transform(
+            recalc=True
+        ),  # must recalc since we interpolated, otherwise the old stored transform is used and rasterized polygon is not aligned
         fill=0,
         all_touched=False,
     )
